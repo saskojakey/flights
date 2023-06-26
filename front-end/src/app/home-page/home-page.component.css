@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.search-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+}
+
+.scroll-to-top a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #fff;
+  color: #0090c9;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-to-top a:hover {
+  background-color: #fff;
+}
+
+#main-photo {
+  width: 85%;
+  border-radius: 3%;
+  height: 30em;
+}
+
+#main-slogan {
+  position: absolute;
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .scroll-to-top {
+    bottom: 10px;
+    right: 10px;
+  }
+}

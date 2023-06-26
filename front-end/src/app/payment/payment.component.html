@@ -1,0 +1,116 @@
+<div *ngIf="isLoggedIn; else content">
+  <h1 class="warning">Please verify the flight data before payment !</h1>
+  <div class="container">
+    <div class="form-container">
+      <h1>Payment</h1>
+      <form [formGroup]="paymentForm">
+        <div class="form-group">
+          <input id="name" type="text" formControlName="nameOnCard" placeholder="Name on card"/>
+          <div *ngIf="nameOnCard.invalid && (nameOnCard.dirty || nameOnCard.touched)">
+            <div id="error-msg" *ngIf="nameOnCard.errors.required">
+              Name and surename are required.
+            </div>
+          </div>
+          <input type="text" formControlName="cardNumber" id="cardNum" placeholder="Card number"/>
+          <div *ngIf="cardNumber.invalid && (cardNumber.dirty || cardNumber.touched)">
+            <div id="error-msg" *ngIf="cardNumber.errors.required">
+              Card number is required.
+            </div>
+            <div id="error-msg" *ngIf="cardNumber.errors.pattern">
+              Please enter a valid card number containing all 16 numbers.
+            </div>
+          </div>
+          <input type="text" formControlName="cvv" id="cvv" placeholder="CVV" />
+          <div *ngIf="cvv.invalid && (cvv.dirty || cvv.touched)">
+            <div id="error-msg" *ngIf="cvv.errors.required">
+              CVV is required.
+            </div>
+            <div id="error-msg" *ngIf="cvv.errors.pattern">
+              Please enter a valid CVV in the format XYZ.
+            </div>
+          </div>
+          <input type="text" id="expirationDate" formControlName="expirationDate" placeholder="Expiration date" (input)="formatExpirationDate($event)"/>
+          <div *ngIf="expirationDate.invalid && (expirationDate.dirty || expirationDate.touched)">
+            <div id="error-msg" *ngIf="expirationDate.errors.required">
+              Expiration date is required.
+            </div>
+            <div id="error-msg" *ngIf="expirationDate.errors.pattern">
+              Please enter a valid expiration date in the format MM/YY.
+            </div>
+          </div>
+        </div>
+        <button type="submit" (click)="onSubmit()" [disabled]="!paymentForm.valid">Submit</button>
+      </form>
+    </div>
+    <div class="form-container">
+      <div class="card-header">
+        <div class="left">
+          <div>
+            <h2>
+              <span>Board date </span>
+              <span>{{ flight!.boardingDate }}</span>
+            </h2>
+            <h2>
+              <span>Return date </span>
+              <span>{{ flight!.returnDate }}</span>
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="flight-info">
+          <div class="flight-info">
+            <div class="flight-time">
+              <h3>Boarding Time</h3>
+              <span>{{ flight!.boardingTime }}</span>
+              <h3>Return Time</h3>
+              <span>{{ flight!.returnTime }}</span>
+            </div>
+          </div>
+          <div class="flight-airports">
+            <h3>Airports</h3>
+            <span>{{ flight!.fromDestination }} - {{ flight!.toDestination }}</span>
+          </div>
+          <div class="flight-duration">
+            <h3>Flight Time</h3>
+            <span>{{ flight!.flightTime }}</span>
+          </div>
+          <div class="flight-stops">
+            <h3>Stops</h3>
+            <span>{{flight!.stops}}</span>
+          </div>
+          <div class="user-name">
+            <h3>Name</h3>
+            <span>{{userInfoDto?.name}}</span>
+          </div>
+          <div class="user-surname">
+            <h3>Surname</h3>
+            <span>{{userInfoDto?.surname}}</span>
+          </div>
+          <div class="user-emai">
+            <h3>Email</h3>
+            <span>{{userInfoDto?.email}}</span>
+          </div>
+            <div class="user-username">
+            <h3>Username</h3>
+            <span>{{userInfoDto?.username}}</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="flight-price">
+            <h3>Price</h3>
+            <h4 id="price">{{flight!.price}} EUR</h4>
+          </div>
+          <div class="card-footer">
+          </div>
+        </div>
+        <div class="card-footer"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content>
+  <app-log-in></app-log-in>
+</ng-template>
+<app-footer></app-footer>

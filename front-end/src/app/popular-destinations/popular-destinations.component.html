@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Popular Destinations</h1>
+  <div class="destination-list">
+    <div
+      class="destination" *ngFor="let destination of destinations" (click)="onClick(destination)">
+      <img id="photo" [src]="destination.photo" />
+      <div class="destination-title">{{ destination.city }}</div>
+    </div>
+  </div>
+</div>

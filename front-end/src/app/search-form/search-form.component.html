@@ -1,0 +1,47 @@
+<div class="form-group">
+  <div class="from-container containers">
+    <label for="fromLocation containers">From</label>
+    <input type="text" [(ngModel)]="fromLocation" placeholder="Departure airport" [disabled]="isFromInputDisabled"/>
+    <span class="clear-icon" *ngIf="isFromInputDisabled" (click)="onClearLocation(true)">x</span>
+    <ul *ngIf="!hideListFrom && fromLocation != ''">
+      <li *ngFor="let location of filterLocations(fromLocation)" (click)="onLocationClick(location, true)">
+        {{ location.city }} | {{ location.code }}
+      </li>
+    </ul>
+  </div>
+  <div class="to-container containers">
+    <label for="toLocation containers">Destination</label>
+    <input type="text" [(ngModel)]="toLocation" placeholder="Destination airport" [disabled]="isToInputDisabled"/>
+    <span class="clear-icon" *ngIf="isToInputDisabled" (click)="onClearLocation(false)">x</span>
+    <ul *ngIf="!hideListTo && toLocation != ''">
+      <li *ngFor="let location of filterLocations(toLocation)" (click)="onLocationClick(location, false)">
+        {{ location.city }} | {{ location.code }}
+      </li>
+    </ul>
+  </div>
+  <div class="departure-container containers">
+    <label for="departure">Departure</label>
+    <input type="date" [(ngModel)]="departureDate" (change)="onDateChange(true)" [min]="departureDate"/>
+  </div>
+  <div class="return-container containers">
+    <label for="return">Return</label>
+    <input type="date" [(ngModel)]="returnDate" (change)="onDateChange(false)" [min]="returnDate" [disabled]="isOneWay"/>
+  </div>
+  <div class="one-way-container containers">
+    <label for="one-way-checkbox">One-way</label>
+    <input type="checkbox" id="one-way-checkbox" [(ngModel)]="isOneWay" />
+  </div>
+  <div class="no-stops-container containers">
+    <label for="no-stops-checkbox">Direct</label>
+    <input type="checkbox" id="no-stops-checkbox" [(ngModel)]="noStops" />
+  </div>
+  <div class="passengers containers">
+    <label for="one-way-checkbox">Passengers</label>
+    <select [(ngModel)]="selectedNumber" class="number-dropdown">
+      <option *ngFor="let number of numbers" [value]="number">
+        {{ number }}
+      </option>
+    </select>
+  </div>
+  <a (click)="goToSearch()" class="button">✈︎</a>
+</div>

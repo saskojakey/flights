@@ -1,0 +1,35 @@
+<div class="container">
+  <nav>
+    <ul>
+      <li>
+        <a routerLink="/home" routerLinkActive="active" class="left"><img id="logo" src="../assets/ss-flights.png"/></a>
+      </li>
+      <li>
+        <a routerLink="/help" routerLinkActive="active" class="right" id="help">❔ Help</a>
+      </li>
+      <li *ngIf="!isLoggedIn">
+        <a routerLink="/log-in" routerLinkActive="active" class="right">✈︎ My Trips</a>
+      </li>
+      <li>
+        <a *ngIf="isLoggedIn" routerLink="/my-trips" routerLinkActive="active" class="right">✈︎ My Trips</a>
+      </li>
+      <li>
+        <a routerLink="/contact" routerLinkActive="active" class="right">☎ Contact</a>
+      </li>
+      <li *ngIf="isAdmin">
+        <a routerLink="/admin" routerLinkActive="active" class="right">✔ Admin</a>
+      </li>
+      <li *ngIf="!isLoggedIn">
+        <a routerLink="/log-in" routerLinkActive="active" class="right" id="log-in">Log In</a>
+      </li>
+      <li *ngIf="!isLoggedIn">
+        <a routerLink="/sign-up" routerLinkActive="active" class="right">Sign Up</a>
+      </li>
+      <li *ngIf="isLoggedIn">
+        <a class="right" id="user" (click)="logout()" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+          {{ buttonText }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

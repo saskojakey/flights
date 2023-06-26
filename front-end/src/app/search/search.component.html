@@ -1,0 +1,13 @@
+<div *ngIf="isLoading; else content">
+  <div class="spinner">
+    <div class="spinner-inner"></div>
+  </div>
+</div>
+
+<ng-template #content>
+  <div class="container">
+    <div class="flight-details">
+      <app-flight-details [returnDate]="returnDate" [boardingDate]="departureDate" [data]="data"></app-flight-details>
+    </div>
+  </div>
+</ng-template>

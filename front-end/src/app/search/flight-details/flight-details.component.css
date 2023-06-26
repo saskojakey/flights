@@ -1,0 +1,168 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.card {
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: #f4f4f4;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  padding-left: 2px;
+  padding-top: 2px;
+}
+
+.static-text {
+  font-weight: lighter;
+}
+
+.dynamic-data {
+  font-weight: bold;
+}
+
+.card-header h2 {
+  margin: 0;
+}
+
+.card-body {
+  padding: 20px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.flight-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flight-info h3 {
+  margin: 0;
+}
+
+.flight-time,
+.flight-airports,
+.flight-duration,
+.flight-stops {
+  flex-basis: 25%;
+}
+
+.flight-time h4,
+.flight-airports h4,
+.flight-duration h4,
+.flight-stops h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.flight-price h3 {
+  margin: 0;
+}
+
+.flight-price h4 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+button {
+  background-color: #0090c9;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005ea2;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #fff;
+  color: #0090c9;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0090c9;
+  color: #fff;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  background-color: #fff;
+}
+
+.error-content {
+  text-align: center;
+  color: black;
+}
+
+.error-content h1 {
+  font-size: 3rem;
+}
+
+.error-content p {
+  font-size: 1.5rem;
+}
+
+.message {
+  padding-bottom: 0.3rem;
+}
+
+.error-image {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+#price {
+  color: #0090c9;
+}

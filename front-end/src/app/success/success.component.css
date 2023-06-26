@@ -1,0 +1,57 @@
+.checkmark-image {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #333333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #555555;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  background-color: #fff;
+  margin-top: -2%;
+}
+
+.success-content {
+  text-align: center;
+  color: black;
+}
+
+.success-content h1 {
+  font-size: 3rem;
+}
+
+.success-content p {
+  font-size: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #fff;
+  color: #0090c9;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0090c9;
+  color: #fff;
+}

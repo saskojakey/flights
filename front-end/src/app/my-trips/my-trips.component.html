@@ -1,0 +1,83 @@
+<div *ngIf="isLoggedIn; else loggedOutLayout">
+  <div class="flight-container">
+    <h1>My Trips (not booked)</h1>
+    <div class="flight-block" id="background">
+      <div class="flight-info-container">
+        <div class="title-container">
+          <label for="departure-date" class="title">Departure</label>
+          <label for="origin" class="title">Origin</label>
+          <label for="destination" class="title">Destination</label>
+          <label for="return-date" class="title">Return date</label>
+          <label for="price" class="title">Price</label>
+          <label for="pay-btn" class="title">Booking/Payment</label>
+        </div>
+        <div class="flight" *ngFor="let flight of flights">
+          <div class="flight-info">
+            <div class="departure-date">
+              {{ formatDate(flight.boardingDate) }}
+            </div>
+            <div class="origin">{{ flight.fromDestination }}</div>
+            <div>―</div>
+            <div class="destination">{{ flight.toDestination }}</div>
+            <div class="return-date" *ngIf="flight.returnDate; else nema">
+              {{ formatDate(flight.returnDate) }}
+            </div>
+            <ng-template #nema>
+              <div class="return-date">One way</div>
+            </ng-template>
+            <div class="price">{{ flight.price }} EUR</div>
+            <div class="pay" *ngIf="!flight.paid; else paid">
+              <button class="button" id="pay" (click)="goToPayment(flight)">
+                Pay
+              </button>
+              <button class="button" id="removalButton" (click)="removeFromMyTrips(flight.flightId)">X</button>
+            </div>
+            <ng-template #paid>
+              <div>
+                <button class="button" disabled>Paid</button>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flight-container">
+    <h1>Booked Flights</h1>
+    <div class="flight-block">
+      <div class="flight-info-container">
+        <div class="title-container">
+          <label for="departure-date" class="title">Departure</label>
+          <label for="origin" class="title">Origin</label>
+          <label for="destination" class="title">Destination</label>
+          <label for="return-date" class="title">Return date</label>
+          <label for="price" class="title">Price</label>
+        </div>
+        <div class="flight" *ngFor="let flight of bookedFlights">
+          <div class="flight-info">
+            <div class="departure-date">
+              {{ formatDate(flight.boardingDate) }}
+            </div>
+            <div class="origin">{{ flight.fromDestination }}</div>
+            <div>―</div>
+            <div class="destination">{{ flight.toDestination }}</div>
+            <div class="return-date" *ngIf="flight.returnDate; else nema">
+              {{ formatDate(flight.returnDate) }}
+            </div>
+            <ng-template #nema>
+              <div class="return-date">One way</div>
+            </ng-template>
+            <div class="price">{{ flight.price }} EUR</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loggedOutLayout>
+  <app-log-in></app-log-in>
+</ng-template>
+
+<app-footer></app-footer>

@@ -1,0 +1,55 @@
+<div *ngIf="isLoading; else content">
+  <div class="spinner-container">
+    <div class="spinner">
+      <div class="spinner-inner"></div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content>
+  <div class="admin-page-header">
+    <h1>Admin page</h1>
+    <li id="token-btn" (click)="newToken()">New access token</li>
+  </div>
+  <div class="admin-page">
+    <div class="data-card">
+      <div class="data-label">Total flights booked:</div>
+      <div class="data-value">{{ data.totalFlightsBooked }}</div>
+    </div>
+
+    <div class="data-card">
+      <div class="data-label">Most booked destination:</div>
+      <div class="data-value">{{ data.mostPopularDestination }}</div>
+    </div>
+
+    <div class="data-card">
+      <div class="data-label">Total money spent:</div>
+      <div class="data-value">{{ data.totalMoneySpent }}</div>
+    </div>
+
+    <div class="data-card">
+      <div class="data-label">Number of flights booked in last month:</div>
+      <div class="data-value">{{ data.flightsInLastMonth }}</div>
+    </div>
+
+    <div class="data-card">
+      <div class="data-label">Average flight cost:</div>
+      <div class="data-value">${{ data.avgFlightCost }}</div>
+    </div>
+
+    <div class="data-card">
+      <div class="data-label">Registered users:</div>
+      <div class="data-value">{{ data.totalUsers }}</div>
+    </div>
+
+    <div class="data-card">
+      <div class="data-label">Average flight time:</div>
+      <div class="data-value">{{ data.avgFlightTime }}</div>
+    </div>
+
+    <div class="data-card">
+      <div class="data-label">Most expensive flight:</div>
+      <div class="data-value">{{ data.mostExpensiveFlight }}</div>
+    </div>
+  </div>
+</ng-template>

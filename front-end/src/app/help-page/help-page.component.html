@@ -1,0 +1,13 @@
+<div class="container">
+  <ul>
+    <li *ngFor="let faq of faqs">
+      <div class="question" (click)="toggleAnswer(faq)" [ngClass]="{ plus: !faq.isOpen, minus: faq.isOpen }">
+        {{ faq.question }}
+      </div>
+      <div class="answer" [class.open]="faq.isOpen">
+        {{ faq.answer }}
+      </div>
+    </li>
+  </ul>
+</div>
+<app-footer></app-footer>

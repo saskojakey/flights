@@ -1,0 +1,112 @@
+.form-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+h1 {
+  font-size: 36px;
+  margin-top: 0;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+  width: 95%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  margin-top: 5px;
+}
+.button {
+  /* background-image: linear-gradient(to bottom, #0090c9, #0274a1); */
+  background-color: #0090c9;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  margin-top: 1em;
+}
+
+button:active {
+  background-image: linear-gradient(to bottom, #0274a1, #0090c9);
+}
+
+button:hover {
+  background-color: #005ea2;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 50%;
+}
+
+#error-msg {
+  padding-top: 4px;
+  padding-left: 10px;
+  color: red;
+  font-size: 14px;
+}
+
+#registrationMessage {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: linear-gradient(to bottom, #0274a1, #0090c9);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#close-button {
+  position: absolute;
+  top: -1rem;
+  right: -0.7rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: white;
+  color: black;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+#background {
+  position: absolute;
+  background: url("../../assets/login.jpg") no-repeat center center;
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .form-container {
+    padding: 10px;
+    font-size: 14px;
+  }
+}

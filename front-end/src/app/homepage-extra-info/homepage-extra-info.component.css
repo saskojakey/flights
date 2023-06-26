@@ -1,0 +1,26 @@
+.homepage-more-info {
+  display: flex;
+  margin: 30px 30px;
+  justify-content: center;
+  text-align: center;
+}
+
+.info-block {
+  width: 30%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.info-block h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.info-block p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h3 {
+  color: #0090c9;
+}

@@ -1,0 +1,126 @@
+.flight-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90;
+  margin-bottom: 2%;
+}
+
+.flight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 80%;
+  background-color: #fff;
+}
+
+.flight-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 80%;
+  background-image: url("./../../assets/flying-plane.jpg");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: color;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.flight-info:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.flight-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.flight-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.title {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  display: block;
+  color: #fff;
+  text-shadow: -1px -1px 0 #0090c9, 1px -1px 0 #0090c9, -1px 1px 0 #0090c9,
+    1px 1px 0 #0090c9;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #0090c9;
+  width: 80%;
+  font-weight: 100;
+}
+
+.departure-date {
+  font-weight: bold;
+}
+
+.origin,
+.destination {
+  text-transform: uppercase;
+}
+
+.button:disabled {
+  cursor: default;
+  opacity: 50%;
+}
+
+h1 {
+  color: #0090c9;
+}
+
+.button {
+  background-color: #0090c9;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  padding: 7px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+#pay:active {
+  background-image: linear-gradient(to bottom, #0274a1, #0090c9);
+}
+
+#pay:hover {
+  background-color: #005ea2;
+}
+
+#removalButton {
+  margin: 5%;
+
+}
+
+#removalButton:hover{
+  background-color: red;
+}

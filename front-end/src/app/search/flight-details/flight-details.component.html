@@ -1,0 +1,137 @@
+<div *ngIf="data === null || data === undefined" class="error">
+  <div class="error-content">
+    <img src="../../assets/error.png" alt="Error Checkmark" class="error-image"/>
+    <h1>Ooops!</h1>
+    <p>Something went wrong!</p>
+    <button class="btn" routerLink="/home">Go Back to Home</button>
+  </div>
+</div>
+
+<div *ngIf="data.data.length == 0; else content" class="error">
+  <div class="error-content">
+    <img src="../../assets/error.png" alt="Error Checkmark" class="error-image"/>
+    <h1>Ooops!</h1>
+    <p>Sorry for the inconvenience!</p>
+    <p>No flights available!</p>
+    <button class="btn" routerLink="/home">Go Back to Home</button>
+  </div>
+</div>
+
+<ng-template #content>
+  <div *ngIf="data">
+    <div class="message" *ngIf="showMessage">
+      <p>{{ message }}</p>
+    </div>
+    <div class="container">
+      <div *ngFor="let flight of data.data" class="card">
+        <div class="card-header">
+          <div class="left">
+            <h2>
+              <span class="static-text">Board date </span>
+              <span class="dynamic-data">{{ this.formatDates(false) }}</span>
+            </h2>
+            <h2 *ngIf="!oneWay">
+              <span class="static-text">Return date </span>
+              <span class="dynamic-data">{{ this.formatDates(true) }}</span>
+            </h2>
+          </div>
+          <div class="right">
+            <h4 class="static-text">Carrier</h4>
+            <h2 class="">{{ getCarrierName(flight) }}</h2>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="flight-info">
+            <div class="flight-time">
+              <h3>Boarding Time</h3>
+              <h4>{{ formatTimes(flight.itineraries[0].segments[0].departure.at) }}</h4>
+              <h3 *ngIf="!oneWay">Return Time</h3>
+              <h4 *ngIf="!oneWay">
+                {{
+                  formatTimes(
+                    flight.itineraries[0].segments[
+                      flight.itineraries[0].segments.length - 1
+                    ].arrival.at
+                  )
+                }}
+              </h4>
+            </div>
+            <div class="flight-airports">
+              <h3>Airports</h3>
+              <h4>
+                {{ flight.itineraries[0].segments[0].departure.iataCode }} -
+                {{
+                  flight.itineraries[0].segments[
+                    flight.itineraries[0].segments.length - 1
+                  ].arrival.iataCode
+                }}
+              </h4>
+            </div>
+            <div class="flight-duration">
+              <h3>Flight Time</h3>
+              <h4>{{ formatDuration(flight.itineraries[0].duration) }}</h4>
+            </div>
+            <div class="flight-stops">
+              <h3>Stops</h3>
+              <h4>{{ flight.itineraries[0].segments.length - 1 }}</h4>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="flight-price">
+              <h3>Price</h3>
+              <h4 id="price">
+                {{ flight.price.total }} {{ flight.price.currency }}
+              </h4>
+            </div>
+            <button
+              (click)="
+                onSelect(
+                  flight.itineraries[0].segments[0].departure.iataCode,
+                  flight.itineraries[0].segments[
+                    flight.itineraries[0].segments.length - 1
+                  ].arrival.iataCode,
+                  formatTimes(flight.itineraries[0].segments[0].departure.at),
+                  formatTimes(
+                    flight.itineraries[0].segments[
+                      flight.itineraries[0].segments.length - 1
+                    ].arrival.at
+                  ),
+                  formatDuration(flight.itineraries[0].duration),
+                  flight.itineraries[0].segments.length - 1,
+                  flight.price.total,
+                  flight.id
+                )
+              "
+            >
+              Select
+            </button>
+            <button
+              (click)="
+                addToTrips(
+                  flight.itineraries[0].segments[0].departure.iataCode,
+                  flight.itineraries[0].segments[
+                    flight.itineraries[0].segments.length - 1
+                  ].arrival.iataCode,
+                  formatTimes(flight.itineraries[0].segments[0].departure.at),
+                  formatTimes(
+                    flight.itineraries[0].segments[
+                      flight.itineraries[0].segments.length - 1
+                    ].arrival.at
+                  ),
+                  formatDuration(flight.itineraries[0].duration),
+                  flight.itineraries[0].segments.length - 1,
+                  flight.price.total,
+                  flight.id
+                );
+                showAlert()
+              "
+            >
+              Add to my trips
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<app-footer></app-footer>
